@@ -72,7 +72,7 @@
 #####################################################################################################################
 
 #13-masala
-n = int(input("n = "))
+#n = int(input("n = "))
 # n > 0
 # S = 1
 # for i in range(1, n + 1):
@@ -156,18 +156,59 @@ n = int(input("n = "))
 #      count = count + 1
 #  print(count)
 
-while True :
-    yosh = int(input("Yoshni kiriting"))
-    if yosh <= 7 :
-       narx = 2000
-    elif yosh <= 18 :
-       narx = 3000
-    elif yosh <= 65 :
-       narx = 10_000
-    else :
-       narx = 0
-print(f"Sizning chipta narxingiz {narx} So'm")
-javob = input("Yoshni kiriting yoki dasturni tugarish uchun 'Exit' yoki 'Cuit' ")
-if (javob.lower() == 'quit' or javob.lower() == 'exit') :
-   break
+#while True :
+#     yosh = int(input("Yoshni kiriting"))
+#     if yosh <= 7 :
+#        narx = 2000
+#     elif yosh <= 18 :
+#        narx = 3000
+#     elif yosh <= 65 :
+#        narx = 10_000
+#     else :
+#        narx = 0
+# print(f"Sizning chipta narxingiz {narx} So'm")
+# javob = input("Yoshni kiriting yoki dasturni tugarish uchun 'Exit' yoki 'Cuit' ")
+# if (javob.lower() == 'quit' or javob.lower() == 'exit') :
+#     break
 
+
+kitoblar = []
+
+print("Yaxshi ko'rgan kitoblaringizni kiriting. Tugatish uchun 'stop' deb yozing.")
+while True:
+    kitob = input("Kitob nomi: ")
+    if kitob.lower() == "stop":
+        break
+    kitoblar.append(kitob)
+
+print("\nSiz kiritgan kitoblar:")
+for k in kitoblar:
+    print("- " + k)
+
+
+savol = "Kiritilgan sonning ildizini qaytaruvchi dastur.\n"
+savol += "Musbat son kiriting "
+savol += "(dasturni to'xtatish uchun 'exit' deb yozing): "
+
+while True:
+    qiymat = input(savol)
+
+    # Dasturni to'xtatish
+    if qiymat.lower() == "exit":
+        break
+
+    # Kiritilgan qiymat sonmi?
+    try:
+        son = float(qiymat)
+    except ValueError:
+        print("Iltimos, son kiriting!")
+        continue
+
+    # Manfiy sonni tekshirish
+    if son < 0:
+        print("Faqat musbat son kiriting!")
+        continue
+
+    # Ildizni hisoblash
+    ildiz = son ** 0.5
+    print(f"{son} ning ildizi {ildiz} ga teng")
